@@ -12,7 +12,10 @@ export default class TeamsRoute extends Route {
         await super.beforeModel(transition);
         
         if(!this.auth.currentUserId) {
-            this.transitionTo('login');
+            this.replaceWith('login');
+        }
+        else {
+            this.replaceWith('teams');
         }
     }
 }

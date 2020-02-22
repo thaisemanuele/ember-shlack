@@ -10,9 +10,9 @@ export default class LoginRoute extends Route {
     @service auth;
     async beforeModel(transition) {
         await super.beforeModel(transition);
-        
+
         if(this.auth.currentUserId) {
-            this.transitionTo('teams');
+            this.replaceWith('teams');
         }
     }
 }
