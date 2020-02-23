@@ -10,9 +10,10 @@ module('Acceptance | loggging out', function(hooks) {
     this.owner.register('service:auth', MockAuthService);
   });
 
-  test('visiting /teams and clicking logout', async function(assert) {
-    await visit('/teams'); //Go to the teams url
-    assert.equal(currentURL(), '/teams');
+  test('visiting /teams/team and clicking logout', async function(assert) {
+    this.owner.lookup('service:auth').currentUserId = '1';
+    await visit('/teams/linkedin'); //Go to the team url
+    assert.ok(currentURL().startsWith('/teams'));
     
     await click('.team-sidebar__logout-button'); //Click Logout button
     assert.equal(currentURL(), '/login');

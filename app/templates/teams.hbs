@@ -1,17 +1,3 @@
-<TeamSelector />
-
-<TeamSidebar />
-
-<!-- Channel -->
-<main class="flex-1 flex flex-col bg-white overflow-hidden channel">
-
-  <ChannelHeader 
-    @title="Frontend Chat"
-    @description="Just some general people generally chatting about CSS and JS" />
-  <!-- Channel Message List -->
-  <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
-    <Message />
-  </div>
-
-  <ChannelFooter />
-</main>
+{{log this.model}}
+<TeamSelector  @teams={{this.model}}/>
+{{ outlet }}
